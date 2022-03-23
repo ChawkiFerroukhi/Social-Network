@@ -1,0 +1,10 @@
+{
+    "name": "cheuug/composer",
+    "autoload": {
+        "psr-4": {
+            "classes\\": "classes/",
+            "models\\": "models/"
+        }
+    },
+    "require": {}
+}
