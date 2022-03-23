@@ -7,11 +7,24 @@
 
     use classes\Config;
     use classes\Database;
+    use models\User;
 
     $db = Database::getInstance();
-    $db->query("SELECT * FROM user_info");
 
-    print_r($db->get());
+    $user = new User($db);
+
+    $user->setData(18, "CHAWKI", "CHAWKI", date("Y/m/d h:i:s"), 2, "salt", "CHAWKI" ,"CHAWKIZ");
+
+    echo $user->update();
+    
+    $db->query("SELECT * FROM users");
+
+    $users = $db->results();
+
+    foreach ($users as $user) {
+
+        echo $user->username . "<br>";
+    }
 
     if ($db->error()) {
         echo "Error";

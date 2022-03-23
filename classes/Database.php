@@ -81,7 +81,7 @@
 
         }
 
-        public function get () {
+        public function results () {
 
             return $this->_results;
 
