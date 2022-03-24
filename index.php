@@ -1,35 +1,13 @@
 <?php
 
-    error_reporting(E_ALL);
+    require_once "core/init.php";
+    require_once "vendor/autoload.php";
 
-    require_once 'vendor/autoload.php';
-    require_once 'core/init.php';
-
-    use classes\Config;
-    use classes\Database;
+    use classes\{Database, Config, Validation, Common, Session, Token, Hash};
     use models\User;
 
-    $db = Database::getInstance();
-
-    $user = new User($db);
-
-    $user->setData(18, "CHAWKI", "CHAWKI", date("Y/m/d h:i:s"), 2, "salt", "CHAWKI" ,"CHAWKIZ");
-
-    echo $user->update();
-    
-    $db->query("SELECT * FROM users");
-
-    $users = $db->results();
-
-    foreach ($users as $user) {
-
-        echo $user->username . "<br>";
-    }
-
-    if ($db->error()) {
-        echo "Error";
-    }else {
-        echo "No error";
+    if (Session::exists('Register_success')) {
+        echo Session::flash('Register_success');
     }
 
 

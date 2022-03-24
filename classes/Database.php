@@ -70,7 +70,7 @@
 
             }
 
-            // link everything with query function.
+            // link everything with this query function.
             return $this;
         }
 

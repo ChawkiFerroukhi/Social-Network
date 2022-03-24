@@ -1,7 +1,7 @@
 <?php
 
     //Check whether the session is started or not
-    
+
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
@@ -14,13 +14,14 @@
             'db' => 'socialnetwork'
         ),
 
-        'remember' => array(
+        "rememberme" => array(
             'cookie_name' => 'hash',
             'cookie_expiray' => 604800
         ),
 
-        'session' => array(
-            'session_name' => 'user'
+        "session" => array(
+            'session_name' => 'user',
+            "token_name" => "token"
         )
 
         );
