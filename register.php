@@ -9,62 +9,70 @@
     use classes\{Database, Config, Validation, Common, Session, Token, Hash};
     use models\User;
 
-    $validate = new Validation();
+    if (isset($_POST["register"])) {
 
-    if(Token::check(Common::getInput($_POST, "token_reg"), "register")) {
-        $validate->check($_POST, array(
-            "firstname" => array(
-                "min" => 3,
-                "max" => 50
-            ),
-            "lastname" => array(
-                "min" => 3,
-                "max" => 50
-            ),
-            "username" => array(
-                "required" => true,
-                "min" => 3,
-                "max" => 40,
-                "unique" => true 
-            ),
-            "email" => array(
-                "required" => true,
-                "email" => true,
-                "email-or-username" => true
-            ),
-            "password" => array(
-                "required" => true,
-                "min" => 6
-            ),
-            "password_again" => array(
-                "required" => true,
-                "matches" => "password"
-            ),
-        ));
-
-        if($validate->passed()) {
-
-            $salt = Hash::salt(16);
-
-            $user = new User();
-            $user->setData(array(
-                "firstname" => Common::getInput($_POST, "firstname"),
-                "lastname" => Common::getInput($_POST, "lastname"),
-                "username" => Common::getInput($_POST, "username"),
-                "email" => Common::getInput($_POST, "email"),
-                "password" => Hash::make(Common::getInput($_POST, "password"), $salt),
-                "salt" => $salt,
-                "joindate" => date("Y/m/d h:i:s"),
-                "user_type" => 1,
+        $validate = new Validation();
+    
+        if (Token::check(Common::getInput($_POST, "token_reg"), "register")) {
+    
+            $validate->check($_POST, array(
+                "firstname" => array(
+                    "name" => "Firstname",
+                    "min" => 3,
+                    "max" => 50
+                ),
+                "lastname" => array(
+                    "name" => "Lastname",
+                    "min" => 3,
+                    "max" => 50
+                ),
+                "username" => array(
+                    "name" => "Username",
+                    "required" => true,
+                    "min" => 3,
+                    "max" => 40,
+                    "unique" => true
+                ),
+                "email" => array(
+                    "name" => "Email",
+                    "required" => true,
+                    "email-or-username" => true
+                ),
+                "password" => array(
+                    "name" => "Password",
+                    "required" => true,
+                    "min" => 6
+                ),
+                "password_again" => array(
+                    "required" => true,
+                    "matches" => "password"
+                ),
             ));
-
-            $user->register();
-
-            Session::flash("Register_success", "Your account has been created successfully");
-            header("Location: login.php");
-        } else {
-            foreach ($validate->errors() as $key => $error) {
-                echo "key:" . $key . ", error : " . $error . "<br>";
+    
+            if ($validate->passed()) {
+    
+                $salt = Hash::salt(16);
+    
+                $user = new User();
+                $user->setData(array(
+                    "firstname" => Common::getInput($_POST, "firstname"),
+                    "lastname" => Common::getInput($_POST, "lastname"),
+                    "username" => Common::getInput($_POST, "username"),
+                    "email" => Common::getInput($_POST, "email"),
+                    "password" => Hash::make(Common::getInput($_POST, "password"), $salt),
+                    "salt" => $salt,
+                    "joindate" => date("Y/m/d h:i:s"),
+                    "user_type" => 1,
+                ));
+    
+                $user->register();
+    
+                Session::flash("Register_success", "Your account has been created successfully.");
+                header("Location: login.php");
+            } else {
+                foreach ($validate->errors() as $key => $error) {
+                    echo "key:" . $key . ", error : " . $error . "<br>";
+                }
             }
         }
     }
@@ -81,9 +89,8 @@
         <title>Register</title>
     </head>
     <body>
-        <?php include "header.php"; ?>
         <main>
-            <div>
+        <div>
                 <h2>Register</h2>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method ="post">
                     <div>
@@ -111,7 +118,7 @@
                         <input type="password" name="password_again" placeholder="Repeat your password" autocomplete="off">
                     </div>
                     <div>
-                        <input type="hidden" name="token" value="<?php echo Token::generate("register"); ?>">
+                        <input type="hidden" name="token_reg" value="<?php echo Token::generate("register"); ?>">
                         <input type="submit" name="register" value="register">
                     </div>
                 </form>
