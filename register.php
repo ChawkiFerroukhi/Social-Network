@@ -2,15 +2,16 @@
 
     error_reporting(E_ALL);
 
-    require_once 'core/init.php';
+    
     require_once 'vendor/autoload.php';
+    require_once 'core/init.php';
 
     use classes\{Database, Config, Validation, Common, Session, Token, Hash};
     use models\User;
 
     $validate = new Validation();
 
-    if (Token::check(Common::getInput($_POST, "token"))) {
+    if(Token::check(Common::getInput($_POST, "token_reg"), "register")) {
         $validate->check($_POST, array(
             "firstname" => array(
                 "min" => 3,
@@ -28,7 +29,8 @@
             ),
             "email" => array(
                 "required" => true,
-                "email" => true
+                "email" => true,
+                "email-or-username" => true
             ),
             "password" => array(
                 "required" => true,
@@ -40,16 +42,16 @@
             ),
         ));
 
-        if ($validate->passed()) {
-            $db = Database::getInstance();
+        if($validate->passed()) {
 
             $salt = Hash::salt(16);
 
-            $user = new User($db);
+            $user = new User();
             $user->setData(array(
                 "firstname" => Common::getInput($_POST, "firstname"),
                 "lastname" => Common::getInput($_POST, "lastname"),
                 "username" => Common::getInput($_POST, "username"),
+                "email" => Common::getInput($_POST, "email"),
                 "password" => Hash::make(Common::getInput($_POST, "password"), $salt),
                 "salt" => $salt,
                 "joindate" => date("Y/m/d h:i:s"),
@@ -59,7 +61,7 @@
             $user->register();
 
             Session::flash("Register_success", "Your account has been created successfully");
-            header("Location: index.php");
+            header("Location: login.php");
         } else {
             foreach ($validate->errors() as $key => $error) {
                 echo "key:" . $key . ", error : " . $error . "<br>";
@@ -109,7 +111,7 @@
                         <input type="password" name="password_again" placeholder="Repeat your password" autocomplete="off">
                     </div>
                     <div>
-                        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                        <input type="hidden" name="token" value="<?php echo Token::generate("register"); ?>">
                         <input type="submit" name="register" value="register">
                     </div>
                 </form>

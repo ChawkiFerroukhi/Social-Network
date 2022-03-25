@@ -9,13 +9,13 @@
         }
 
         public static function delete($name) {
-            if (self::exists($name)) {
+            if(self::exists($name)) {
                 unset($_SESSION[$name]);
             }
         }
 
         public static function get($name) {
-            if (self::exists($name)) {
+            if(self::exists($name)) {
                 return $_SESSION[$name];
             }
 
@@ -28,7 +28,7 @@
         }
 
         public static function flash($name, $message = '') {
-            if (self::exists($name)) {
+            if(self::exists($name)) {
                 $sessionData = Session::get($name);
                 Session::delete($name);
                 

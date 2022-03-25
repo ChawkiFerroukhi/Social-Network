@@ -1,13 +1,23 @@
 <?php
 
-    require_once "core/init.php";
+    
     require_once "vendor/autoload.php";
+    require_once "core/init.php";
 
-    use classes\{Database, Config, Validation, Common, Session, Token, Hash};
-    use models\User;
+    use classes\{Database, Config, Validation, Common, Session, Token, Hash, Redirect, Cookie};
 
-    if (Session::exists('Register_success')) {
+    if(!$user->getPropertyValue("isLoggedIn")) {
+        Redirect::to("login.php");
+    }
+
+    /*if (Session::exists('Register_success')) {
         echo Session::flash('Register_success');
+    }*/
+
+    
+    if(isset($_POST["logout"])) {
+        $user->logout();
+        Redirect::to("login.php");
     }
 
 
@@ -24,8 +34,13 @@
     <title>SocialNetwork</title>
 </head>
 <body>
-    
-    <?php include "header.php" ?>
+
+    <?php echo "<p>Hello " . $user->getPropertyValue('username') . "</p>"; ?>
+
+
+    <form action="index.php" method="post">
+        <input type="submit" name="logout" value="logout">
+    </form>
 
 
 </body>

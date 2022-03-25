@@ -35,7 +35,7 @@
                 if we haven't done so we're going to instantiate it by creating a DATABASE object
             */
 
-            if (!isset(self::$_instance)){
+            if(!isset(self::$_instance)){
 
                 self::$_instance = new Database();
             }
@@ -51,7 +51,7 @@
 
             if ($this->_query = $this->_pdo->prepare($sql)) {
 
-                if (count($params)) {
+                if(count($params)) {
                     $count = 1;
                     foreach($params as $param) {
                         $this->_query->bindValue($count, $param);
@@ -59,7 +59,7 @@
                     }
                 }
 
-                if ($this->_query->execute()) {
+                if($this->_query->execute()) {
 
                     $this->_results = $this->_query->fetchAll(\PDO::FETCH_OBJ);
                     $this->_count = $this->_query->rowCount();
