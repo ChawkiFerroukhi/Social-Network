@@ -37,7 +37,7 @@ if (isset($_POST["logout"])) {
     <title>SocialNetwork</title>
 </head>
 
-<body>
+<body style="background-color: rgb(24,25,26);">
 
     <?php include 'navbar.php' ?>
     <?php echo "<p class='text-blue-500 text-4xl'>Hello " . $user->getPropertyValue('username') . "</p>"; ?>
