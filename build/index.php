@@ -48,6 +48,7 @@ if (isset($_POST["logout"])) {
     </form>
 
     <script src="../node_modules/flowbite/dist/flowbite.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </body>
 
 </html>
