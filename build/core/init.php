@@ -27,7 +27,8 @@
             "token_name" => "token",
             "tokens" => array(
                 "register" => "register",
-                "login" => "login"
+                "login" => "login",
+                "logout" => "logout"
             )
         )
     );
