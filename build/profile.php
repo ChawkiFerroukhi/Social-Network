@@ -37,20 +37,72 @@ if (isset($_POST["logout"])) {
     <title>Profile</title>
 </head>
 
-<body style="background-color: rgb(24,25,26);">
+<body style="background-color: #242526">
     <header class="sticky top-0 z-50">
         <?php include 'navbar.php' ?>
     </header>
-
-    <main class="flex flex-col">
-        <section class="relative" style="height: 650px; background-color: #242526">
-            <div class="container top-0 bg-center bg-cover mx-auto" style='height: 80%; max-width: 1024px; background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'>
-                <div class="absolute bottom-0 mx-auto">
-                    <img src="https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2013/08/facebook-silhouette_thumb.jpg" class="w-32 h-32 rounded-full shadow-lg">
+    <div class="container mx-auto" style="height: 600px;">
+        <div class="top-0 bg-center bg-cover" style='height: 70%; background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'></div>
+        <div class="bottom-0 flex mx-auto">
+            <img src="https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2013/08/facebook-silhouette_thumb.jpg" class="w-32 h-32 rounded-full shadow-lg">
+            <div class="m-5">
+                <p class="text-white font-bold tracking-wide capitalize">chawki ferroukhi</p>
+                <p class="mt-2 font-bold tracking-wide capitalize" style="color: #B0B3B8">1052 Friends</p>
+            </div>
+            <div class="w-9/12 mt-auto ">
+                <button type="button" class="float-right self-end text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                    Edit Profile
+                </button>
+                <button type="button" class="float-right self-end text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                    Add Friend
+                </button>
+            </div>
+        </div>
+        <hr class="mt-3" style="border-color: #66686B">
+        <div class="text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+            <ul class="flex flex-wrap -mb-px">
+                <li class="mr-2">
+                    <a href="#" class="inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" aria-current="page">Posts</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">About</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Photos</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Videos</a>
+                </li>
+                <li>
+                    <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Friends</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mt-4 h-screen" style=" background-color: #18191A">
+        <div class="container mx-auto">
+            <div class="flex flex-row">
+                <div class="flex-1">
+                    <div class="mt-4 p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" style="background-color: #242526">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">Intro</h5>
+                        </a>
+                        <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
+                            Add Biography
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
+                            Add Biography
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1 grow-0">
+                    test
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+
 
 
     <script src="../node_modules/flowbite/dist/flowbite.js"></script>
