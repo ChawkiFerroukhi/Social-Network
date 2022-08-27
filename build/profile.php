@@ -50,10 +50,10 @@ if (isset($_POST["logout"])) {
                 <p class="mt-2 font-bold tracking-wide capitalize" style="color: #B0B3B8">1052 Friends</p>
             </div>
             <div class="w-9/12 mt-auto ">
-                <button type="button" class="float-right self-end text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                <button type="button" class="float-right text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
                     Edit Profile
                 </button>
-                <button type="button" class="float-right self-end text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                <button type="button" class="float-right text-white hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
                     Add Friend
                 </button>
             </div>
@@ -81,23 +81,76 @@ if (isset($_POST["logout"])) {
     </div>
     <div class="mt-4 h-screen" style=" background-color: #18191A">
         <div class="container mx-auto">
-            <div class="flex flex-row">
-                <div class="flex-1">
-                    <div class="mt-4 p-6 max-w-sm rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" style="background-color: #242526">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">Intro</h5>
-                        </a>
-                        <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
-                            Add Biography
-                        </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                        <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
-                            Add Biography
-                        </a>
+            <div class="flex flex-row space-x-4">
+                <div class="flex-1 ">
+                    <div class="mt-4 p-6 max-w-lg rounded-lg shadow-md space-y-4" style="background-color: #242526">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">Intro</h5>
+                        <button class="w-full m-auto items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
+                            Add biography
+                        </button>
+                        <button class="w-full items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
+                            Add education
+                        </button>
+                        <button class="w-full items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #3A3B3C">
+                            Edit details
+                        </button>
+                    </div>
+                    <div class="mt-4 p-6 max-w-lg rounded-lg shadow-md" style="background-color: #242526">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">Photos</h5>
+                        <div class="flex flex-wrap -m-1 md:-m-2">
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-6 max-w-lg rounded-lg shadow-md" style="background-color: #242526">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white">Friends</h5>
+                        <p class="mt-2 font-bold tracking-wide capitalize" style="color: #B0B3B8">1052 Friends</p>
+                        <div class="flex flex-wrap -m-1 md:-m-2">
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp">
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap w-1/3">
+                                <div class="w-full p-1 md:p-2">
+                                    <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="flex-1 grow-0">
-                    test
+                    <div class="mt-4 p-6 max-w rounded-lg shadow-md space-y-4" style="background-color: #242526">
+                        <div class="flex">
+                            <div class="flex-none">
+                                <img src="https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2013/08/facebook-silhouette_thumb.jpg" class="w-12 h-12 rounded-full shadow-lg">
+                            </div>
+                            <div class="mx-4 my-1 flex-1 w-64">
+                                <input class="text-gray-900 text-md rounded-2xl block w-full p-2.5 focus:outline-none" placeholder="What's on your mind?" style="background-color: #4E4F50">
+                            </div>
+                        </div>
+                        <hr class="mt-3" style="border-color: #66686B">
+                        <div class="flex flex-nowrap">
+                            <button class="m-auto items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-white-700 rounded-lg hover:bg-blue-800 focus:outline-none" style="background-color: #3A3B3C">
+                                Live video
+                            </button>
+                            <button class="m-auto items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none" style="background-color: #3A3B3C">
+                                Photo/video
+                            </button>
+                            <button class="m-auto items-center py-2.5 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none" style="background-color: #3A3B3C">
+                                Life event
+                            </button>
+                        </div>
+                    </div>
+                    <?php include 'posts.php' ?>
                 </div>
             </div>
         </div>
