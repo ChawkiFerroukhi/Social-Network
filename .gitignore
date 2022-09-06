@@ -1,1 +1,4 @@
 /vendor/
+
+# ignore build htaccess
+!build/.htaccess
